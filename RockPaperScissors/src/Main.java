@@ -1,5 +1,6 @@
 import jdk.internal.util.xml.impl.Input;
 
+
 import java.util.Scanner;
 
 public class Main {
@@ -12,12 +13,8 @@ public class Main {
 
         int randomnumber = (int) (Math.random() * 3);
         //System.out.println(randomnumber);
-        int scissors, rock, paper;
-        scissors = 0;
-        rock = 1;
-        paper = 2;
 
-        while (true) {
+
             if (randomnumber == 0) {              //if the random number is 0 then it will equal to s = scissors
                 System.out.println("s");
             } else if (randomnumber == 1) {           //if the random number is 1 then it will equal to p = paper
@@ -58,6 +55,6 @@ public class Main {
         }
 
     }
-}
+
 
 
