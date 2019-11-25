@@ -2,74 +2,71 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
+
         //Problem1
+        System.out.println("Adding Values");
         int[] array = {1, 2, 3, 4};
-        System.out.println("Adding values " + Arrays.toString(array1(array)));
+        addValue(array, 5);
         //Problem 2
-        int[] array2 = {1, 2, 3, 4};
-        System.out.println("Deleting Values " + Arrays.toString(array6(array2)));
+        System.out.println("Deleting Values");
+        int[] array1 = {1, 2, 3, 4};
+        deleteValue(array1, 3);
         //Problem 3
-        int[] sequence = {5, 7, 9};
-        System.out.println("Inserting values " + Arrays.toString(array5(sequence)));
+        System.out.println("Inserting Values");
+        int[] array2 = {2, 4, 5, 6};
+       insertValue(array2, 3,1);
 
     }
 
-    //Problem1
-    static int[] array1(int[] temp) {
-        int[] addarray = {5, 6, 7};
-        int totalLength = addarray.length + temp.length;
-
+    //Problem 1
+    static int[] addValue(int[] temp, int num) {
+        int totalLength = temp.length + 1;
         int[] result = new int[totalLength];
-        int i = 0;
-        for (i = 0; i < temp.length; i++) {
+        for (int i = 0; i < temp.length; i++) {
             result[i] = temp[i];
         }
-        for (int y = 0; y < addarray.length; y++) {
-            result[i] = addarray[y];
-            i++;
+        result[result.length - 1] = num;
+        for (int i = 0; i < result.length; i++) {
+            System.out.println(result[i]);
         }
         return result;
     }
 
-    static int[] array6(int[] digits) {
-        int[] deleteArray = {5, 6, 7};
-        int valueIndex3 = 2;
-        int sumLength = deleteArray.length + digits.length - 1;
-        //int finalLength[] = new int[deleteArray.length - 1];
-        int[] result3 = new int[sumLength -1];
-        int j = 0;
-        for (j = 0; j < digits.length; j++) {
-            result3[j] = result3[j];
+    //Problem 2
+    static int[] deleteValue(int[] temp, int digit) {
+        int totalLength = temp.length - 1;
+        int[] result = new int[totalLength];
+        for (int i = 0; i < temp.length - 1; i++) {
+            result[i] = temp[i];
         }
-        for (int y = 0; y < deleteArray.length; y++) {
-            result3[j] = deleteArray[j];
-            result3[0] = deleteArray[2];
-            //j++;
-
-            //if (j == valueIndex3) {
-            //}
-        }return result3;
+        result[result.length - 1] = digit;
+        for (int j = 0; j < result.length; j++) {
+            System.out.println(result[j]);
+        }
+        return result;
     }
-    static int[] array5(int[] values) {
-        int value1 = 6;
-        int value2 = 8;
-        int value1Index = 1;
-        int value2Index = 3;
-        int[] result1 = new int[values.length + 2];
-        int j = 0;
-        for (j = 0; j < result1.length; j++) {
-            result1[0] = values[0];
-            if (j == value1Index) {
-                result1[j] = value1;
-                result1[j + 1] = values[j];
-            }
-            else if(j == value2Index){
-                result1[j] = value2;
-                result1[j+1] = values[j-1];
+//Problem 3
+    static int[] insertValue(int[] temp, int value, int index) {
+        int counter = 1;
+        int totalLength = temp.length + 1;
+        int[] result = new int[totalLength];
+        for (int i = 0; i < temp.length; i++) {
+            if (i == index) {
+                result[i] = value;
+                result[i + 1] = temp[i];
+            } else if (i < index) {
+                result[i] = temp[i];
+            } else {
+                result[i + 1] = temp[i];
             }
         }
-        return result1;
+        printArray(result);
+        return result;
     }
-
+    static void printArray(int[] array) {
+        for(int i = 0; i< array.length; i++){
+        System.out.println(array[i]);
+        }
+    }
 }
 
