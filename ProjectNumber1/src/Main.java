@@ -1,38 +1,61 @@
 public class Main {
-
     //Code your solution to problem number one here
     static int problemOne(String s){
         int answer = 0;
-        for(int i = 0; i< s.length(); i++){
-            if(s.substring(i,i+1).equals("i")){
+        String[] input = {"a", "e", "i", "o", "u"};
+        for(int i=0; i<s.length(); i++) {
+            if (s.charAt(i) == 'a' || s.charAt(i) == 'e' || s.charAt(i) == 'i' || s.charAt(i) == 'o' || s.charAt(i) == 'u'){
                 answer++;
-            }else if (s.substring(i,i+1).equals("a")){
-                answer++;
-            }else if(s.substring(i,i+1).equals("e")){
-                answer++;
-            }else if(s.substring(i,i+1).equals("o")){
-                answer ++;
-            }else if(s.substring(i,i+1).equals("u")){
-                answer ++;
             }
-
         }
+        System.out.println("test " + answer);
         return answer;
     }
     //Code you problem number two here
     static int problemTwo(String s){
         int answer = 0;
-        //your code here
+        String[] str = {"bob"};
+        for(int j = 0; j < s.length();j++){
+            if(j < s.length()-2){
+                if(s.charAt(j)=='b' && s.charAt(j+1)=='o' && s.charAt(j+2)=='b'){
+                    answer++;
+                }
+            }
+        }
+        System.out.println("test "+answer);
         return answer;
     }
+
     //Code your solution to problem number 3 here
-    static String problemThree(String s){
-        //your code here
-        return s;
+    static String problemThree(String temp) {
+        String result = "";
+        String tmp = "";
+        for (int i = 0; i <temp.length(); i++) {
+            tmp+=temp.charAt(i);
+            if(tmp.length() > result.length()){
+                result = tmp;
+            }
+            if(i>(temp.length()-2)){
+                break;
+            }
+            if(temp.charAt(i) > temp.charAt(i+1)){
+                tmp = "";
+            }
+        }
+        return result;
     }
     public static void main(String[] args) {
-        //System.out.println("Number of times bob occurs is: " + problemOne( answer));
+        //problemOne("wurexc");
+        String s  = "wurexc";
+        System.out.println(problemOne(s));
 
+        //problemTwo("ybovtobboboobcboobbobbbob");
+        s ="ybovtobboboobcboobbobbbob";
+        System.out.println(problemTwo(s));
+
+        problemThree("");
+        s = "ixysuoizvwwebyyhp";
+        System.out.println(problemThree(s));
         /*
         Set s to a string and run your method using s as the parameter
         Run your method in a println statement to determine what the output was
@@ -40,6 +63,6 @@ public class Main {
         The tests will put your method through several different Strings to test
         all possible cases.  If you have 100% success then there is no bugs in your methods.
          */
-        String s;
+
     }
 }
